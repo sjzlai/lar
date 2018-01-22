@@ -43,12 +43,12 @@ class UploadController extends CommonCotroller
                 $fileName = date('YmdHis').mt_rand(100,999).'.'.$extension; // 重命名
                 $value->move(public_path().$destinationPath, $fileName); // 保存图片
                 $img =Image::make('uploads/'.date('Y-m-d').'/'.$fileName)->resize(200,200);
-                $img->save('uploads/2018-01-18/'.'small_'.$fileName);
+                $img->save('uploads/2018-01-18/'.$fileName);
                 Image::make('uploads/'.date('Y-m-d').'/'.$fileName)->resize(600,600)->save('uploads/2018-01-18/'.'thum_'.$fileName);
                 for($i=0;$i<count($file);$i++){
                     $filePath[$i]['g_photo']= 'uploads/'.date('Y-m-d').'/'.$fileName;
-                    $filePath[$i]['g_small']='uploads/2018-01-18/'.'small_'.$fileName;
-                    $filePath[$i]['g_big']='uploads/2018-01-18/'.'thum_'.$fileName;
+                    $filePath[$i]['g_small']='uploads/'.date('Y-m-d').'/'.'small_'.$fileName;
+                    $filePath[$i]['g_big']='uploads/'.date('Y-m-d').'/'.'thum_'.$fileName;
                 }
 
             }

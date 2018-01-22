@@ -44,6 +44,10 @@ Route::group(['middleware' => ['web','admin.login'],'prefix' =>'admin','namespac
     Route::any('upload/store','UploadController@store');
     Route::any('upload/del/{g_id}','UploadController@del');
 
+    Route::any('file','fileController@index');
+    Route::any('file/add','fileController@add');
+    Route::any('file/addshow/{g_id}','fileController@addshow');
+    Route::any('file/del','fileController@del');
 
 
     //Route::any('upload', 'CommonCotroller@upload');

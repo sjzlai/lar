@@ -52,7 +52,7 @@
                     <a title="上传图片" href="{{url('admin/upload/create/'.$v->g_id)}} ">
                         <i class="layui-icon">&#59048;</i>
                     </a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a title="上传文档" href="{{url('admin/goods/'.$v->g_id.'/edit ')}}">
+                    <a title="上传文档" href="{{url('admin/file/addshow/'.$v->g_id)}}">
                         <i class="layui-icon">&#xe600;</i>
                     </a>&nbsp;&nbsp;&nbsp;&nbsp;
                     <a title="删除"  href="javascript:;" onclick="member_del({{$v->g_id}});">
