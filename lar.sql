@@ -72,6 +72,23 @@ CREATE TABLE `blog_doc` (
 
 /*Data for the table `blog_doc` */
 
+/*Table structure for table `blog_file` */
+
+DROP TABLE IF EXISTS `blog_file`;
+
+CREATE TABLE `blog_file` (
+  `file_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `file_path` varchar(255) DEFAULT NULL COMMENT '文件路径',
+  `file_title` varchar(255) DEFAULT NULL COMMENT '文件名称',
+  `g_id` int(11) DEFAULT NULL COMMENT '商品id',
+  `file_createtime` varchar(30) DEFAULT NULL COMMENT '文件创建时间',
+  PRIMARY KEY (`file_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `blog_file` */
+
+insert  into `blog_file`(`file_id`,`file_path`,`file_title`,`g_id`,`file_createtime`) values (1,'/file/2018-01-2220180122155701200.doc','onea',1,'1516607821');
+
 /*Table structure for table `blog_goods` */
 
 DROP TABLE IF EXISTS `blog_goods`;
@@ -127,7 +144,7 @@ CREATE TABLE `blog_goods_photo` (
 
 /*Data for the table `blog_goods_photo` */
 
-insert  into `blog_goods_photo`(`gp_id`,`gp_photo`,`gp_thum`,`gp_small`,`g_id`,`gp_createtime`) values (1,'/uploads/2018-01-18/20180118153640191.jpg','uploads/2018-01-18/thum_20180118153640191.jpg','uploads/2018-01-18/small_20180118153640191.jpg',1,'1516261000'),(2,'uploads/2018-01-18/20180118153640191.jpg','uploads/2018-01-18/thum_20180118153640191.jpg','uploads/2018-01-18/small_20180118153640191.jpg',1,'1516261000'),(3,'uploads/2018-01-18/20180118153640191.jpg','uploads/2018-01-18/thum_20180118153640191.jpg','uploads/2018-01-18/small_20180118153640191.jpg',1,'1516261000'),(4,'uploads/2018-01-18/20180118153640191.jpg','uploads/2018-01-18/thum_20180118153640191.jpg','uploads/2018-01-18/small_20180118153640191.jpg',1,'1516261000'),(5,'uploads/2018-01-19/20180119120926972.png','uploads/2018-01-18/thum_20180119120926972.png','uploads/2018-01-18/small_20180119120926972.png',2,'1516334967'),(6,'uploads/2018-01-19/20180119133106551.jpg','uploads/2018-01-18/thum_20180119133106551.jpg','uploads/2018-01-18/small_20180119133106551.jpg',2,'1516339866'),(7,'uploads/2018-01-19/20180119133106551.jpg','uploads/2018-01-18/thum_20180119133106551.jpg','uploads/2018-01-18/small_20180119133106551.jpg',2,'1516339866'),(8,'uploads/2018-01-19/20180119133106551.jpg','uploads/2018-01-18/thum_20180119133106551.jpg','uploads/2018-01-18/small_20180119133106551.jpg',2,'1516339866');
+insert  into `blog_goods_photo`(`gp_id`,`gp_photo`,`gp_thum`,`gp_small`,`g_id`,`gp_createtime`) values (1,'/uploads/2018-01-18/20180118153640191.jpg','uploads/2018-01-18/thum_20180118153640191.jpg','uploads/2018-01-18/small_20180118153640191.jpg',1,'1516261000'),(2,'uploads/2018-01-18/20180118153640191.jpg','uploads/2018-01-18/thum_20180118153640191.jpg','uploads/2018-01-18/small_20180118153640191.jpg',1,'1516261000'),(3,'uploads/2018-01-18/20180118153640191.jpg','uploads/2018-01-18/thum_20180118153640191.jpg','uploads/2018-01-18/small_20180118153640191.jpg',1,'1516261000'),(4,'uploads/2018-01-18/20180118153640191.jpg','uploads/2018-01-18/thum_20180118153640191.jpg','uploads/2018-01-18/small_20180118153640191.jpg',1,'1516261000');
 
 /*Table structure for table `blog_number` */
 
@@ -158,23 +175,7 @@ CREATE TABLE `blog_user` (
 
 /*Data for the table `blog_user` */
 
-insert  into `blog_user`(`user_id`,`user_name`,`user_pass`) values (1,'admin','eyJpdiI6IkZMaThQVzl1WUx6RnowblwvbVAwTVN3PT0iLCJ2YWx1ZSI6IjBIblNpakpHa05UNms2Z0h5cElYNnc9PSIsIm1hYyI6IjI3NDU4YmU1OTQxOGE5NjQxM2EwYzA0Yzk0YmVhZDAxYjg4MDI2NDkwN2NhNjA4MmU4M2E1ZGZjOWVkNWRkYjYifQ==');
-
-/*Table structure for table `image` */
-
-DROP TABLE IF EXISTS `image`;
-
-CREATE TABLE `image` (
-  `img_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '图片id',
-  `img_photo` varchar(255) DEFAULT NULL COMMENT '原图',
-  `img_thum` varchar(255) DEFAULT NULL COMMENT '中图',
-  `img_small` varchar(255) DEFAULT NULL COMMENT '小图',
-  `g_id` int(11) DEFAULT NULL COMMENT '商品id',
-  `img_create` varchar(30) DEFAULT NULL COMMENT '上传时间',
-  PRIMARY KEY (`img_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-/*Data for the table `image` */
+insert  into `blog_user`(`user_id`,`user_name`,`user_pass`) values (1,'admin','e10adc3949ba59abbe56e057f20f883e');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
