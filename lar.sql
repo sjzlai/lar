@@ -58,20 +58,6 @@ CREATE TABLE `blog_category` (
 
 insert  into `blog_category`(`cate_id`,`cate_name`,`cate_title`,`cate_keywords`,`cate_description`,`cate_view`,`cate_order`,`cate_pid`) values (1,'新闻','搜集国内外最新资讯',NULL,NULL,0,1,0),(2,'体育','发展体育事业,增强国民体质',NULL,NULL,0,2,0),(16,'娱乐','最新娱乐新闻','','',0,3,0),(4,'热门新闻','最新新闻事件',NULL,NULL,0,2,1),(6,'体育彩票','国家体育总局体育彩票管理中心官方网站',NULL,NULL,0,3,2),(7,'腾讯体育','腾讯体育_腾讯网',NULL,NULL,0,1,2),(8,'新浪体育','新浪体育_新浪网','fxvsd','xczzx',0,2,2),(11,'体育播报','最新的体育信息','最新的体育信息','最新的体育信息',0,4,2),(14,'军事新闻','最新新闻事件','sadasd','xvccgfd',0,1,1);
 
-/*Table structure for table `blog_doc` */
-
-DROP TABLE IF EXISTS `blog_doc`;
-
-CREATE TABLE `blog_doc` (
-  `d_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `d_name` varchar(255) DEFAULT NULL COMMENT '文档名称',
-  `d_path` varchar(255) DEFAULT NULL COMMENT '文档路径',
-  `d_goods_id` int(11) DEFAULT NULL COMMENT '商品id',
-  PRIMARY KEY (`d_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `blog_doc` */
-
 /*Table structure for table `blog_file` */
 
 DROP TABLE IF EXISTS `blog_file`;
