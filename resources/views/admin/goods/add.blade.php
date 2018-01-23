@@ -27,7 +27,8 @@
 <!--结果集标题与导航组件 结束-->
 
 <div class="result_wrap">
-    <form action="{{url('admin/goods')}}" method="post" enctype="multipart/form-data">
+    {{--<form action="{{url('')}}" method="post" enctype="multipart/form-data">--}}
+    <form action="javascript:void(0)"  enctype="multipart/form-data">
         {{csrf_field()}}
         <table class="add_tab">
             <tbody>
@@ -53,6 +54,51 @@
                     <input id="file_upload" name="file_upload" type="file" multiple="true">
                 </td>
             </tr>--}}
+            <tr>
+                <th></th>
+                <td>
+                <ul class="SKU_TYPE" style="display:none">
+                    <li is_required='0' propid='1' sku-type-name="存储"><em>*</em>存储：</li>
+                </ul>
+                <ul style="display:none">
+                    <li><label><input type="checkbox" class="sku_value" propvalid='11' value="16G" />16G</label></li>
+                </ul>
+                <div class="clear"></div>
+                <div class="clear"></div>
+                <button class="cloneSku">添加自定义sku属性</button>
+                <!--sku模板,用于克隆,生成自定义sku-->
+                <div id="skuCloneModel" style="display: none;">
+                    <div class="clear"></div>
+                    <ul class="SKU_TYPE">
+                        <li is_required='0' propid='' sku-type-name="">
+                            <a href="javascript:void(0);" class="delCusSkuType">移除</a>
+                            <input type="text" class="cusSkuTypeInput" />：
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <input type="checkbox" class="model_sku_val" propvalid='' value="" />
+                            <input type="text" class="cusSkuValInput" />
+                        </li>
+                        <button class="cloneSkuVal">添加自定义属性值</button>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <!--单个sku值克隆模板-->
+                <li style="display: none;" id="onlySkuValCloneModel">
+                    <input type="checkbox" class="model_sku_val" propvalid='' value="" />
+                    <input type="text" class="cusSkuValInput" />
+                    <a href="javascript:void(0);" class="delCusSkuVal">删除</a>
+                </li>
+                <div class="clear"></div>
+                <div id="skuTable"></div>
+                <link rel="stylesheet" href="{{asset('style/css/sku_style.css')}}" />
+                <script type="text/javascript" src="{{asset('style/js/getSetSkuVals.js')}}"></script>
+                <script type="text/javascript" src="{{asset('style/js/createSkuTable.js')}}"></script>
+                <script type="text/javascript" src="{{asset('style/js/customSku.js')}}"></script>
+                {{--<script type="text/javascript" src="{{asset('style/plugins/layer/layer.js')}}"></script>--}}
+                </td>
+            </tr>
             <tr>
                 <th>商品简介：</th>
                 <td>
@@ -88,4 +134,5 @@
         </table>
     </form>
 </div>
+
 @endsection
