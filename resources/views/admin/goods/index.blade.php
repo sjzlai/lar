@@ -50,7 +50,10 @@
                         <i class="layui-icon">&#59048;</i>
                     </a>&nbsp;&nbsp;&nbsp;&nbsp;--}}
                     <a title="上传图片" href="{{url('admin/upload/create/'.$v->g_id)}} ">
-                        <i class="layui-icon">&#59048;</i>
+                        <i class="layui-icon">&#59398;</i>
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a title="设置SKU" href="{{url('admin/goods/sku/'.$v->g_id)}}">
+                        <i class="layui-icon">&#59060;</i>
                     </a>&nbsp;&nbsp;&nbsp;&nbsp;
                     <a title="上传文档" href="{{url('admin/file/addshow/'.$v->g_id)}}">
                         <i class="layui-icon">&#xe600;</i>

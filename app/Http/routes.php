@@ -37,14 +37,17 @@ Route::group(['middleware' => ['web','admin.login'],'prefix' =>'admin','namespac
     Route::resource('gcate','GcateController');                     //商品分类
 
     Route::resource('article','ArticleController');                 //文章
-    Route::resource('goods','GoodsController');                     //商品
 
-    Route::get('upload/create/{g_id}','UploadController@add');                                             //上传
+    Route::resource('goods','GoodsController');                     //商品
+    Route::any('goods/sku/{g_id}','GoodsController@sku');
+    Route::post('goods/skuadd','GoodsController@skuadd');     //提交sku
+
+    Route::get('upload/create/{g_id}','UploadController@add');     //上传 图片主图
     Route::any('upload/index','UploadController@index');
     Route::any('upload/store','UploadController@store');
     Route::any('upload/del/{g_id}','UploadController@del');
 
-    Route::any('file','fileController@index');
+    Route::any('file','fileController@index');                      //上传文档 .pdf
     Route::any('file/add','fileController@add');
     Route::any('file/addshow/{g_id}','fileController@addshow');
     Route::any('file/del','fileController@del');

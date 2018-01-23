@@ -119,7 +119,7 @@ $(function(){
 				//console.log(propvalids);
 				SKUTableDom += '<tr propvalids=\''+propvalids+'\' propids=\''+propIdArr.toString()+'\' propvalnames=\''+propvalnameArr.join(";")+'\'  propnames=\''+propNameArr.join(";")+'\' class="sku_table_tr">'+currRowDoms+'<td><input type="text" class="setting_sku_price" value="'+alreadySetSkuPrice+'"/></td><td><input type="text" class="setting_sku_stock" value="'+alreadySetSkuStock+'"/></td></tr>';
 			}
-			SKUTableDom += "</table>";
+			SKUTableDom += "</table> <input type='submit' value='提交'>";
 		}
 		$("#skuTable").html(SKUTableDom);
 	});

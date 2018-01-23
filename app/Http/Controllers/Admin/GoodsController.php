@@ -79,6 +79,17 @@ class GoodsController extends CommonCotroller
     public function show(){
 
     }
+
+    //设置sku值
+    public function sku(){
+        return view('admin.goods.sku');
+    }
+    //提交SKU
+    public function skuadd(){
+        $data = Input::except('_token');
+        dd($data);
+    }
+
     //put.admin/goods/{goods}         更新商品
     public function update($g_id){
         $input =Input::except('_token','_method');
