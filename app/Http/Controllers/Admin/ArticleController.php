@@ -33,7 +33,7 @@ class ArticleController extends CommonCotroller
         if($file->isValid()){
             $allowed_extensions = ["jpg", "png","jpge"];
             if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions)) {
-                exit('您只能上传doc、pdf格式的文件！');
+                exit('您只能上传jpg,png格式的文件！');
             }
             $destinationPath = '/article/'.date('Y-m-d'); // public文件夹下面uploads/xxxx-xx-xx 建文件夹
             $extension = $file->getClientOriginalExtension();   // 上传文件后缀

@@ -54,3 +54,32 @@ Route::group(['middleware' => ['web','admin.login'],'prefix' =>'admin','namespac
 });
 
 
+/**
+ * 前台api路由组
+ */
+Route::group(['prefix'=>'api','namespace'=>'Home'],function(){
+    Route::get('/',function (){
+        return 'api version 1.0';
+    });
+
+    //新闻列表 cate_id
+    Route::get('newsList/{cate_id}/{page_id?}','NewsController@newsList');
+
+    //新闻详情 news_id
+    Route::get('newsInfo/{news_id}','NewsController@newsInfo');
+
+    //最新资讯 单条查询
+    Route::get('newsNew','NewsController@newsNew');
+
+    //首页产品介绍
+    Route::get('goodsShow','GoodsController@goodsIntroduction');
+
+    //产品中心页 产品列表
+    Route::get('goodsList','GoodsController@goodsList');
+
+    //产品中心页 产品详情
+    Route::get('goodsInfo/{g_id}','GoodsController@goodsInfo');
+
+});
+
+
