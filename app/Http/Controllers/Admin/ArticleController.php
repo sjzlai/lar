@@ -31,17 +31,17 @@ class ArticleController extends CommonCotroller
         $input = Input::except('_token','file_upload');
         $file = Input::file('file_upload');
         if($file->isValid()){
-            $originalName = $file->getClientOriginalName(); // 文件原名
-            $ext = $file->getClientOriginalExtension();     // 扩展名
-            $realPath = $file->getRealPath();   //临时文件的绝对路径
-            $type = $file->getClientMimeType();     // image/jpeg
-            // 上传文件
-            $filename = date('Y-m-d-H-i-s') . '-' . uniqid() . '.' . $ext;
-            // 使用我们新建的uploads本地存储空间（目录）
-            $bool = Storage::disk('uploads')->put($filename, file_get_contents($realPath));
-            $filepath = '/storage/app/uploads/'.$filename;
-            $input['art_thumb'] =$filepath;
+            $allowed_extensions = ["jpg", "png","jpge"];
+            if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions)) {
+                exit('您只能上传doc、pdf格式的文件！');
+            }
+            $destinationPath = '/article/'.date('Y-m-d'); // public文件夹下面uploads/xxxx-xx-xx 建文件夹
+            $extension = $file->getClientOriginalExtension();   // 上传文件后缀
+            $filename = date('YmdHis').mt_rand(100,999).'.'.$extension; // 重命名
+            $file->move(public_path().$destinationPath, $filename); // 保存图片
+            $a = $destinationPath.'/'.$filename;
         }
+        $input['art_photo'] =$a;
         $rules = [
             'art_title'=>'required',
             'art_thumb'=>'required',
