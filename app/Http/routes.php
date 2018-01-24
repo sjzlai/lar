@@ -49,10 +49,10 @@ Route::group(['middleware' => ['web','admin.login'],'prefix' =>'admin','namespac
     Route::any('upload/store','UploadController@store');
     Route::any('upload/del/{g_id}','UploadController@del');
 
-    Route::any('file','fileController@index');                          //上传文档 .pdf
-    Route::any('file/add','fileController@add');
-    Route::any('file/addshow/{g_id}','fileController@addshow');
-    Route::any('file/del','fileController@del');
+    Route::any('file/index','FileController@index');                          //上传文档 .pdf
+    Route::any('file/add','FileController@add');
+    Route::any('file/addshow/{g_id}','FileController@addshow');
+    Route::any('file/del/{file_id}','FileController@del');
 
 
     //Route::any('upload', 'CommonCotroller@upload');

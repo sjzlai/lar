@@ -35,61 +35,22 @@
     <div class="left-nav">
       <div id="side-nav">
         <ul id="nav">
-            <li>
+           {{-- <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe6b8;</i>
                     <cite>会员管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a _href="member-list.html">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>会员列表</cite>
-                            
-                        </a>
-                    </li >
-                    <li>
-                        <a _href="member-del.html">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>会员删除</cite>
-                            
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">
-                            <i class="iconfont">&#xe70b;</i>
-                            <cite>文件管理</cite>
-                            <i class="iconfont nav_right">&#xe697;</i>
-                        </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a _href="xxx.html">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>文件列表</cite>
-                                    
-                                </a>
-                            </li >
-                            <li>
-                                <a _href="xx.html">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>文件删除</cite>
-                                    
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
+            </li>--}}
             <li>
                 <a href="javascript:;">
-                    <i class="iconfont">&#xe726;</i>
+                    <i class="iconfont">&#xe740;</i>
                     <cite>文档管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="{{url('admin/file')}}">
+                        <a _href="{{url('admin/file/index')}}">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>文档列表</cite>
                         </a>
@@ -157,7 +118,7 @@
             </li>
             <li>
                 <a href="javascript:;">
-                    <i class="iconfont">&#xe740;</i>
+                    <i class="iconfont">&#xe726;</i>
                     <cite>关于我们</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>

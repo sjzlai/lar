@@ -71,9 +71,21 @@ class FileController extends Controller
     }
 
     //删除文件
-    public function del()
+    public function del($file_id)
     {
-
+        $re = DB::table('file')->where('file_id',$file_id)->delete();
+        if($re){
+            $data =[
+                'status' =>0,
+                'msg'   =>'删除成功',
+            ];
+        }else{
+            $data =[
+                'status' =>1,
+                'msg'   =>'删除失败',
+            ];
+        }
+        return $data;
     }
 
 
