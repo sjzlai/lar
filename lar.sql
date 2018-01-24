@@ -132,6 +132,23 @@ CREATE TABLE `blog_goods_photo` (
 
 insert  into `blog_goods_photo`(`gp_id`,`gp_photo`,`gp_thum`,`gp_small`,`g_id`,`gp_createtime`) values (1,'/uploads/2018-01-18/20180118153640191.jpg','uploads/2018-01-18/thum_20180118153640191.jpg','uploads/2018-01-18/small_20180118153640191.jpg',1,'1516261000'),(2,'uploads/2018-01-18/20180118153640191.jpg','uploads/2018-01-18/thum_20180118153640191.jpg','uploads/2018-01-18/small_20180118153640191.jpg',1,'1516261000'),(3,'uploads/2018-01-18/20180118153640191.jpg','uploads/2018-01-18/thum_20180118153640191.jpg','uploads/2018-01-18/small_20180118153640191.jpg',1,'1516261000'),(4,'uploads/2018-01-18/20180118153640191.jpg','uploads/2018-01-18/thum_20180118153640191.jpg','uploads/2018-01-18/small_20180118153640191.jpg',1,'1516261000');
 
+/*Table structure for table `blog_goods_sku` */
+
+DROP TABLE IF EXISTS `blog_goods_sku`;
+
+CREATE TABLE `blog_goods_sku` (
+  `sku_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'sku_id',
+  `sku_num` varchar(100) DEFAULT NULL COMMENT '货号',
+  `sku_depot` varchar(255) DEFAULT NULL COMMENT '规格',
+  `sku_price` int(11) DEFAULT NULL COMMENT '价格',
+  `g_id` int(11) DEFAULT NULL COMMENT '商品id',
+  PRIMARY KEY (`sku_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+/*Data for the table `blog_goods_sku` */
+
+insert  into `blog_goods_sku`(`sku_id`,`sku_num`,`sku_depot`,`sku_price`,`g_id`) values (4,'k0001','20ml',99,1);
+
 /*Table structure for table `blog_number` */
 
 DROP TABLE IF EXISTS `blog_number`;
