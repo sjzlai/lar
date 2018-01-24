@@ -33,21 +33,23 @@ Route::group(['middleware' => ['web','admin.login'],'prefix' =>'admin','namespac
     Route::any('pass','IndexController@pass');
 
     Route::post('cate/changeorder','CategoryController@changeOrder');
-    Route::resource('category','CategoryController');               //文章分类
-    Route::resource('gcate','GcateController');                     //商品分类
+    Route::resource('category','CategoryController');                   //文章分类
+    Route::resource('gcate','GcateController');                         //商品分类
 
-    Route::resource('article','ArticleController');                 //文章
+    Route::resource('article','ArticleController');                     //文章
 
-    Route::resource('goods','GoodsController');                     //商品
+    Route::resource('goods','GoodsController');                         //商品
     Route::any('goods/sku/{g_id}','GoodsController@sku');
-    Route::post('goods/skuadd','GoodsController@skuadd');     //提交sku
+    Route::post('goods/skuadd','GoodsController@skuadd');               //提交sku
+    Route::any('goods/skudel/{sku_id}','GoodsController@skudel');      //删除sku
 
-    Route::get('upload/create/{g_id}','UploadController@add');     //上传 图片主图
+
+    Route::get('upload/create/{g_id}','UploadController@add');          //上传 图片主图
     Route::any('upload/index','UploadController@index');
     Route::any('upload/store','UploadController@store');
     Route::any('upload/del/{g_id}','UploadController@del');
 
-    Route::any('file','fileController@index');                      //上传文档 .pdf
+    Route::any('file','fileController@index');                          //上传文档 .pdf
     Route::any('file/add','fileController@add');
     Route::any('file/addshow/{g_id}','fileController@addshow');
     Route::any('file/del','fileController@del');

@@ -70,7 +70,7 @@ $(function(){
 			for(var t = 0 ; t < skuTypeArr.length ; t ++){
 				SKUTableDom += '<th>'+skuTypeArr[t].skuTypeTitle+'</th>';
 			}
-			SKUTableDom += '<th>价格</th><th>库存</th>';
+			SKUTableDom += '<th>规格</th><th>价格</th>';
 			SKUTableDom += "</tr>";
 			//循环处理表体
 			for(var i = 0 ; i < totalRow ; i ++){//总共需要创建多少行
@@ -117,7 +117,7 @@ $(function(){
 					}
 				}
 				//console.log(propvalids);
-				SKUTableDom += '<tr propvalids=\''+propvalids+'\' propids=\''+propIdArr.toString()+'\' propvalnames=\''+propvalnameArr.join(";")+'\'  propnames=\''+propNameArr.join(";")+'\' class="sku_table_tr">'+currRowDoms+'<td><input type="text" class="setting_sku_price" value="'+alreadySetSkuPrice+'"/></td><td><input type="text" class="setting_sku_stock" value="'+alreadySetSkuStock+'"/></td></tr>';
+				SKUTableDom += '<tr propvalids=\''+propvalids+'\' propids=\''+propIdArr.toString()+'\' propvalnames=\''+propvalnameArr.join(";")+'\'  propnames=\''+propNameArr.join(";")+'\' class="sku_table_tr">'+currRowDoms+'<td style="display: none"><input type="hidden" name="num[]" class="setting_sku_num" value="'+ skuValues[point].skuValueTitle +'"></td><td><input type="text" class="setting_sku_price" name="depot[]" value="'+alreadySetSkuPrice+'"/></td><td><input type="text" class="setting_sku_stock" name="price[]" value="'+alreadySetSkuStock+'"/></td></tr>';
 			}
 			SKUTableDom += "</table> <input type='submit' value='提交'>";
 		}
@@ -132,13 +132,15 @@ function getAlreadySetSkuVals(){
 	alreadySetSkuVals = {};
 	//获取设置的SKU属性值
 	$("tr[class*='sku_table_tr']").each(function(){
+		var skuNum = $(this).find("input[type='hidden'][class*='setting_sku_num']").val();//SKU 名称
 		var skuPrice = $(this).find("input[type='text'][class*='setting_sku_price']").val();//SKU价格
-		var skuStock = $(this).find("input[type='text'][class*='setting_sku_stock']").val();//SKU库存
+		var skuStock = $(this).find("input[type='text'][class*='setting_sku_stock']").html();//SKU库存
 		if(skuPrice || skuStock){//已经设置了全部或部分值
 			var propvalids = $(this).attr("propvalids");//SKU值主键集合
 			alreadySetSkuVals[propvalids] = {
+				"skuNum"   : skuNum,
 				"skuPrice" : skuPrice,
-				"skuStock" : skuStock
+				"skuStock" : skuStock,
 			}
 		}
 	});

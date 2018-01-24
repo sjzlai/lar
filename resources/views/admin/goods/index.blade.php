@@ -20,12 +20,9 @@
     <table class="layui-table">
         <thead>
         <tr>
-            {{--<th>--}}
-                {{--<div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>--}}
-            {{--</th>--}}
             <th>商品分类</th>
             <th>商品名称</th>
-            {{--<th>缩略图</th>--}}
+            <th>商品详细</th>
             <th>商品简介</th>
             <th>发布时间</th>
             <th>操作</th>
@@ -38,7 +35,21 @@
                 {{--</td>--}}
                 <td>{{$v->gc_title}}</td>
                 <td>{{$v->g_name}}</td>
-                {{--<td><img src="{{url("$v->g_photo")}}" alt=""></td>--}}
+                <td>
+                    @foreach($info as $va)
+                        @if($va->g_id ==$v->g_id)
+                    <ul>
+                        <li>货号:  {{$va->sku_num}} <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            规格:  {{$va->sku_depot}}<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            价格:  {{$va->sku_price}}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a title="删除"  href="javascript:;" onclick="sku_del({{$va->sku_id}});">
+                                <i class="layui-icon">&#xe640;</i>
+                            </a>
+                        </li>
+                    </ul>
+                        @endif
+                        @endforeach
+                </td>
                 <td>{{$v->g_jian}}</td>
                 <td>{{date('Y:m:d H:i:s',$v->g_createtime)}}</td>
                 <td class="td-manage">
@@ -117,6 +128,23 @@
             layer.confirm('确认要删除吗？',function(index){
                 //发异步删除数据
                 $.post("{{url('admin/goods/')}}/"+obj,{'_method':'delete','_token':"{{csrf_token()}}"},function(data){
+                    if (data.status ==0){
+                        location.href=location.href;
+                        layer.msg(data.msg,{icon:6})
+                    }else{
+                        layer.msg(data.msg,{icon:5})
+                    }
+                });
+                //$(obj).parents("tr").remove();
+                layer.msg('已删除!',{icon:1,time:1000});
+            });
+        }
+
+        /*用户-删除*/
+        function sku_del(obj,id){
+            layer.confirm('确认要删除吗？',function(index){
+                //发异步删除数据
+                $.post("{{url('admin/goods/skudel')}}/"+obj,{'_method':'delete','_token':"{{csrf_token()}}"},function(data){
                     if (data.status ==0){
                         location.href=location.href;
                         layer.msg(data.msg,{icon:6})

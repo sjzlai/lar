@@ -36,8 +36,12 @@
         </li>
         <div class="clear"></div>
         <div >
-            <form action={{url('admin/goods/skuadd')}} method='post' id="skuTable">
-                {{csrf_field()}}
+            <form action="{{url('admin/goods/skuadd')}}"  method='post'>
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                <input type="hidden" name="g_id" value="{{$g_id}}">
+                <div  id="skuTable">
+
+                </div>
             </form>
         </div>
         <link rel="stylesheet" href="{{asset('style/css/sku_style.css')}}"/>
