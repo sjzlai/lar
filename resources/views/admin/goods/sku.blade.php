@@ -9,20 +9,21 @@
         </ul>
         <div class="clear"></div>
         <div class="clear"></div>
-        <button class="cloneSku">添加自定义sku属性</button>
+        <button class="cloneSku back">添加自定义sku属性</button>
+    <input type='button' class='' onclick='history.go(-1)' value='返回'>
         <!--sku模板,用于克隆,生成自定义sku-->
         <div id="skuCloneModel" style="display: none;">
             <div class="clear"></div>
             <ul class="SKU_TYPE">
                 <li is_required='0' propid='' sku-type-name="">
                     <a href="javascript:void(0);" class="delCusSkuType">移除</a>
-                    <input type="text" class="cusSkuTypeInput"/>：
+                    <input type="text" class="cusSkuTypeInput" />：
                 </li>
             </ul>
             <ul>
                 <li>
                     <input type="checkbox" class="model_sku_val" propvalid='' value=""/>
-                    <input type="text" class="cusSkuValInput"/>
+                    <input type="text" class="cusSkuValInput" />
                 </li>
                 <button class="cloneSkuVal">添加自定义属性值</button>
             </ul>
