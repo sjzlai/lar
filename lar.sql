@@ -36,7 +36,7 @@ CREATE TABLE `blog_article` (
 
 /*Data for the table `blog_article` */
 
-insert  into `blog_article`(`art_id`,`art_title`,`art_tag`,`art_description`,`art_thumb`,`art_content`,`art_time`,`art_editor`,`art_view`,`cate_id`) values (1,'2','4','5','/storage/app/uploads/2018-01-02-15-38-06-5a4b36de2c3e4.png','<p>6</p>',1514878866,'3',0,1),(2,'2','4','5','/storage/app/uploads/2018-01-02-15-38-45-5a4b3705dad46.png','<p>6</p>',1514878866,'3',0,1),(3,'标题','关键词','描述','/storage/app/uploads/2018-01-02-15-39-28-5a4b3730803fb.png','<p>这是文章的内容</p>',1514878866,'作者',0,1);
+insert  into `blog_article`(`art_id`,`art_title`,`art_tag`,`art_description`,`art_thumb`,`art_content`,`art_time`,`art_editor`,`art_view`,`cate_id`) values (1,'2','4','5','storage/app/uploads/2018-01-02-15-38-06-5a4b36de2c3e4.png','<p>6</p>',1514878866,'3',0,1),(2,'2','4','5','storage/app/uploads/2018-01-02-15-38-45-5a4b3705dad46.png','<p>6</p>',1514878866,'3',0,1),(3,'标题','关键词','描述','storage/app/uploads/2018-01-02-15-39-28-5a4b3730803fb.png','<p>这是文章的内容</p>',1514878866,'作者',0,1);
 
 /*Table structure for table `blog_category` */
 
@@ -57,6 +57,21 @@ CREATE TABLE `blog_category` (
 /*Data for the table `blog_category` */
 
 insert  into `blog_category`(`cate_id`,`cate_name`,`cate_title`,`cate_keywords`,`cate_description`,`cate_view`,`cate_order`,`cate_pid`) values (1,'新闻','搜集国内外最新资讯',NULL,NULL,0,1,0),(2,'体育','发展体育事业,增强国民体质',NULL,NULL,0,2,0),(16,'娱乐','最新娱乐新闻','','',0,3,0),(4,'热门新闻','最新新闻事件',NULL,NULL,0,2,1),(6,'体育彩票','国家体育总局体育彩票管理中心官方网站',NULL,NULL,0,3,2),(7,'腾讯体育','腾讯体育_腾讯网',NULL,NULL,0,1,2),(8,'新浪体育','新浪体育_新浪网','fxvsd','xczzx',0,2,2),(11,'体育播报','最新的体育信息','最新的体育信息','最新的体育信息',0,4,2),(14,'军事新闻','最新新闻事件','sadasd','xvccgfd',0,1,1);
+
+/*Table structure for table `blog_company` */
+
+DROP TABLE IF EXISTS `blog_company`;
+
+CREATE TABLE `blog_company` (
+  `company_id` tinyint(10) NOT NULL AUTO_INCREMENT COMMENT '公司介绍id',
+  `content` text COMMENT '公司介绍内容',
+  `createtime` varchar(30) DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`company_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+/*Data for the table `blog_company` */
+
+insert  into `blog_company`(`company_id`,`content`,`createtime`) values (4,'<p>先查询坐吃等死古代诗歌吃不吃</p>','1517197252');
 
 /*Table structure for table `blog_file` */
 
@@ -164,6 +179,21 @@ CREATE TABLE `blog_number` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `blog_number` */
+
+/*Table structure for table `blog_recruit` */
+
+DROP TABLE IF EXISTS `blog_recruit`;
+
+CREATE TABLE `blog_recruit` (
+  `recruit_id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` text COMMENT '招聘内容',
+  `createtime` int(11) DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`recruit_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+/*Data for the table `blog_recruit` */
+
+insert  into `blog_recruit`(`recruit_id`,`content`,`createtime`) values (1,'<p>cxjhfl佳世客独立思考真狠心了那些人<br/></p>',1517208723);
 
 /*Table structure for table `blog_user` */
 
