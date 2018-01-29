@@ -1,21 +1,11 @@
 @extends('layouts.admin')
 @section('content')
-    {{--    <div class="x-body">
-          <div class="layui-row">
-            <form class="layui-form layui-col-md12 x-so">
-              <input class="layui-input" placeholder="开始日" name="start" id="start">
-              <input class="layui-input" placeholder="截止日" name="end" id="end">
-              <input type="text" name="username"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
-              <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
-            </form>
-          </div>--}}
     <xblock>
         {{--<button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>--}}
         {{--<button class="layui-btn" onclick="x_admin_show('添加用户','{{url('admin/category/create')}}')"><i class="layui-icon"></i>添加</button>--}}
         <a href="{{url('admin/article/create')}}" i class="layui-btn layui-icon">添加</a>
         <span class="x-right" style="line-height:40px;">共有数据：88 条 &nbsp;&nbsp;&nbsp;&nbsp;<a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
                 <i class="layui-icon" style="line-height:30px">ဂ</i></a></span>
-
     </xblock>
     <table class="layui-table">
         <thead>

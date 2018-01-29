@@ -11,9 +11,10 @@
 |
 */
 
-
+/**
+ * 后台路由组
+ */
 Route::group(['middleware' => ['web']],function(){
-
 
     Route::get('/', function () {
         return view('welcome');
@@ -54,6 +55,15 @@ Route::group(['middleware' => ['web','admin.login'],'prefix' =>'admin','namespac
     Route::any('file/addshow/{g_id}','FileController@addshow');
     Route::any('file/del/{file_id}','FileController@del');
 
+    Route::any('company/index','CompanyController@index');                  //公司介绍
+    Route::any('company/add','CompanyController@add');
+    Route::any('company/store','CompanyController@store');
+    Route::any('company/del/{company_id}','CompanyController@del');
+
+    Route::any('recruit/index','RecruitController@index');                  //招聘
+    Route::any('recruit/add','RecruitController@add');
+    Route::any('recruit/store','RecruitController@store');
+    Route::any('recruit/del/{recruit_id}','RecruitController@del');
 
     //Route::any('upload', 'CommonCotroller@upload');
 });

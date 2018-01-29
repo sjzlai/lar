@@ -124,13 +124,13 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="{{url('admin/goods')}}">
+                        <a _href="{{url('admin/company/index')}}">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>公司介绍</cite>
                         </a>
                     </li >
                     <li>
-                        <a _href="{{url('admin/goods')}}">
+                        <a _href="{{url('admin/recruit/index')}}">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>人才招聘</cite>
                         </a>

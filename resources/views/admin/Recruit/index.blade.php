@@ -12,17 +12,19 @@
     <xblock>
         {{--<button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>--}}
         {{--<button class="layui-btn" onclick="x_admin_show('添加用户','{{url('admin/category/create')}}')"><i class="layui-icon"></i>添加</button>--}}
-        <span class="x-right" style="line-height:40px;"><a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+        <a href="{{url('admin/recruit/add')}}" i class="layui-btn layui-icon">添加</a>
+        <span class="x-right" style="line-height:40px;">共有数据：88 条 &nbsp;&nbsp;&nbsp;&nbsp;<a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
                 <i class="layui-icon" style="line-height:30px">ဂ</i></a></span>
 
     </xblock>
     <table class="layui-table">
         <thead>
         <tr>
-            <th>文件id</th>
-            <th>文件名称</th>
-            <th>文件目录</th>
-            <th>创建时间</th>
+            {{--<th>--}}
+                {{--<div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>--}}
+            {{--</th>--}}
+            <th>内容</th>
+            <th>发布时间</th>
             <th>操作</th>
         </thead>
         <tbody>
@@ -31,12 +33,13 @@
                 {{--<td>--}}
                     {{--<div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>--}}
                 {{--</td>--}}
-                <td>{{$v->file_id}}</td>
-                <td>{{$v->file_title}}</td>
-                <td>{{$v->file_path}}</td>
-                <td>{{date('Y:m:d H:i:s')}}</td>
+                <td>{!! $v->content !!}</td>
+                <td>{{date('Y:m:d H:i:s',$v->createtime)}}</td>
                 <td class="td-manage">
-                    <a title="删除"  href="javascript:;" onclick="member_del({{$v->file_id}});">
+                    <a title="编辑" href="{{url('admin/recruit/'.'/edit ')}}">
+                        <i class="layui-icon">&#xe642;</i>
+                    </a>
+                    <a title="删除"  href="javascript:;" onclick="member_del({{$v->recruit_id}});">
                         <i class="layui-icon">&#xe640;</i>
                     </a>
                 </td>
@@ -94,24 +97,7 @@
         function member_del(obj,id){
             layer.confirm('确认要删除吗？',function(index){
                 //发异步删除数据
-                $.post("{{url('admin/file/del')}}/"+obj,{'_method':'delete','_token':"{{csrf_token()}}"},function(data){
-                    if (data.status ==0){
-                        location.href=location.href;
-                        layer.msg(data.msg,{icon:6})
-                    }else{
-                        layer.msg(data.msg,{icon:5})
-                    }
-                });
-                //$(obj).parents("tr").remove();
-                layer.msg('已删除!',{icon:1,time:1000});
-            });
-        }
-
-        /*用户-删除*/
-        function sku_del(obj,id){
-            layer.confirm('确认要删除吗？',function(index){
-                //发异步删除数据
-                $.post("{{url('admin/goods/skudel')}}/"+obj,{'_method':'delete','_token':"{{csrf_token()}}"},function(data){
+                $.post("{{url('admin/recruit/del')}}/"+obj,{'_method':'delete','_token':"{{csrf_token()}}"},function(data){
                     if (data.status ==0){
                         location.href=location.href;
                         layer.msg(data.msg,{icon:6})
@@ -147,7 +133,7 @@
     <script>
         function changeOrder(obj,cate_id){
             var cate_order = $(obj).val();
-            $.post("{{url('admin/gcate/changeorder')}}",{'_token':'{{csrf_token()}}',cate_id:cate_id,cate_order:cate_order},function(data){
+            $.post("{{url('admin/cate/changeorder')}}",{'_token':'{{csrf_token()}}',cate_id:cate_id,cate_order:cate_order},function(data){
 
                 if(data.status ==0){
                     layer.msg(data.msg, {icon: 6});
