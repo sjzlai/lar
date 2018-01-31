@@ -48,7 +48,7 @@ class FileController extends Controller
                 $extension = $value->getClientOriginalExtension();   // 上传文件后缀
                 $filename = date('YmdHis').mt_rand(100,999).'.'.$extension; // 重命名
                 $value->move(public_path().$destinationPath, $filename); // 保存图片
-                $a = $destinationPath.$filename;
+                $a = $destinationPath.'/'.$filename;
             }
 
         }
