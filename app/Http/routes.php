@@ -14,8 +14,6 @@
 /**
  * 后台路由组
  */
-Route::group(['middleware' => ['web']],function(){
-
     Route::get('/', function () {
         return view('welcome');
     });
@@ -23,7 +21,6 @@ Route::group(['middleware' => ['web']],function(){
     Route::any('admin/login','Admin\LoginController@login');
     Route::get('admin/code','Admin\LoginController@code');
 
-});
 
 
 Route::group(['middleware' => ['web','admin.login'],'prefix' =>'admin','namespace' => 'Admin'],function(){

@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    protected $table = 'image';
-    protected $primaryKey='img_id';
+    protected $table = 'goods_photo';
+    protected $primaryKey='gp_id';
     public $timestamps =false;
     protected $guarded =[];
 
